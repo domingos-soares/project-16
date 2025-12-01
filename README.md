@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # project-16 - FastAPI REST Server with PostgreSQL
 
 A REST API server built with Python, FastAPI, and PostgreSQL supporting all CRUD operations (GET, POST, PUT, DELETE) plus a healthcheck endpoint.
@@ -57,11 +58,35 @@ Default connection: `postgresql://postgres:postgres@localhost:5432/fastapi_db`
 python main.py
 
 # Method 2: With auto-reload (development)
+=======
+# project-16 - FastAPI REST Server
+
+A REST API server built with Python and FastAPI supporting all CRUD operations (GET, POST, PUT, DELETE) plus a healthcheck endpoint.
+
+**Created:** 01/12/2025
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running the Server
+
+```bash
+python main.py
+```
+
+Or use uvicorn with auto-reload:
+
+```bash
+>>>>>>> health
 uvicorn main:app --reload
 ```
 
 The server will start at `http://localhost:8000`
 
+<<<<<<< HEAD
 ## Project Structure
 
 ```
@@ -76,21 +101,36 @@ project-16/
 └── README.md           # This file
 ```
 
+=======
+>>>>>>> health
 ## API Endpoints
 
 - **GET** `/health` - Health check endpoint (returns service status)
 - **GET** `/` - Root endpoint with API documentation
+<<<<<<< HEAD
 - **GET** `/items` - Get all items from database
 - **GET** `/items/{item_id}` - Get a specific item by ID
 - **POST** `/items` - Create a new item in database
 - **PUT** `/items/{item_id}` - Update an existing item
 - **DELETE** `/items/{item_id}` - Delete an item from database
+=======
+- **GET** `/items` - Get all items
+- **GET** `/items/{item_id}` - Get a specific item by ID
+- **POST** `/items` - Create a new item
+- **PUT** `/items/{item_id}` - Update an existing item
+- **DELETE** `/items/{item_id}` - Delete an item
+>>>>>>> health
 
 ## Interactive API Documentation
 
 FastAPI provides automatic interactive API documentation:
+<<<<<<< HEAD
 - **Swagger UI**: `http://localhost:8000/docs`
 - **ReDoc**: `http://localhost:8000/redoc`
+=======
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+>>>>>>> health
 
 ## Example Usage
 
@@ -103,7 +143,11 @@ Response:
 ```json
 {
   "status": "healthy",
+<<<<<<< HEAD
   "service": "FastAPI REST Server with PostgreSQL",
+=======
+  "service": "FastAPI REST Server",
+>>>>>>> health
   "version": "1.0.0"
 }
 ```
@@ -112,6 +156,7 @@ Response:
 ```bash
 curl -X POST "http://localhost:8000/items" \
   -H "Content-Type: application/json" \
+<<<<<<< HEAD
   -d '{
     "name": "Laptop",
     "description": "Gaming laptop",
@@ -129,6 +174,9 @@ Response:
   "price": 1299.99,
   "quantity": 5
 }
+=======
+  -d '{"name": "Laptop", "description": "Gaming laptop", "price": 1299.99, "quantity": 5}'
+>>>>>>> health
 ```
 
 ### Get all items (GET)
@@ -145,16 +193,21 @@ curl "http://localhost:8000/items/1"
 ```bash
 curl -X PUT "http://localhost:8000/items/1" \
   -H "Content-Type: application/json" \
+<<<<<<< HEAD
   -d '{
     "price": 1199.99,
     "quantity": 10
   }'
+=======
+  -d '{"price": 1199.99, "quantity": 10}'
+>>>>>>> health
 ```
 
 ### Delete an item (DELETE)
 ```bash
 curl -X DELETE "http://localhost:8000/items/1"
 ```
+<<<<<<< HEAD
 
 Response:
 ```json
@@ -209,5 +262,7 @@ docker-compose logs -f postgres
 **Import errors:**
 - Make sure virtual environment is activated
 - Reinstall dependencies: `pip install -r requirements.txt`
+=======
+>>>>>>> health
 
 
