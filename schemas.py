@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
+import uuid
 
 
 class ItemBase(BaseModel):
@@ -21,7 +22,7 @@ class ItemUpdate(BaseModel):
 
 
 class ItemResponse(ItemBase):
-    id: int
+    id: uuid.UUID
 
     class Config:
         from_attributes = True

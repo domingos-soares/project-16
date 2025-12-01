@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
 from typing import List
 import uvicorn
+import uuid
 
 from database import engine, get_db, Base
 from models import Item
@@ -34,7 +35,7 @@ async def get_items(db: Session = Depends(get_db)):
 
 # GET - Retrieve a specific item by ID
 @app.get("/items/{item_id}", response_model=ItemResponse)
-async def get_item(item_id: int, db: Session = Depends(get_db)):
+async def get_item(item_id: uuid.UUID, db: Session = Depends(get_db)):
     """Get a specific item by ID"""
     item = db.query(Item).filter(Item.id == item_id).first()
     if not item:
@@ -56,7 +57,7 @@ async def create_item(item: ItemCreate, db: Session = Depends(get_db)):
 # PUT - Update an existing item
 @app.put("/items/{item_id}", response_model=ItemResponse)
 async def update_item(
-    item_id: int,
+    item_id: uuid.UUID,
     item_update: ItemUpdate,
     db: Session = Depends(get_db)
 ):
@@ -77,7 +78,7 @@ async def update_item(
 
 # DELETE - Delete an item
 @app.delete("/items/{item_id}")
-async def delete_item(item_id: int, db: Session = Depends(get_db)):
+async def delete_item(item_id: uuid.UUID, db: Session = Depends(get_db)):
     """Delete an item by ID"""
     db_item = db.query(Item).filter(Item.id == item_id).first()
     if not db_item:
